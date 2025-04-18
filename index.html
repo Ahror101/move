@@ -41,7 +41,9 @@
               <i class="fas fa-moon"></i>
             </button>
 
-            <button class="btn btn-primary">Sign In</button>
+            <div class="auth-buttons" id="auth-buttons">
+              <a href="signin.html" class="btn btn-primary">Sign In</a>
+            </div>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
               <i class="fas fa-bars"></i>
@@ -79,7 +81,11 @@
           </ul>
         </nav>
 
-        <button class="btn btn-primary mobile-sign-in">Sign In</button>
+        <div class="mobile-auth-buttons" id="mobile-auth-buttons">
+          <a href="signin.html" class="btn btn-primary mobile-sign-in"
+            >Sign In</a
+          >
+        </div>
       </div>
     </div>
 
@@ -103,7 +109,9 @@
                 Watch Now
                 <i class="fas fa-arrow-right"></i>
               </a>
-              <button class="btn btn-outline">Add to Watchlist</button>
+              <button class="btn btn-outline" id="watchlist-btn">
+                Add to Watchlist
+              </button>
             </div>
           </div>
         </div>
@@ -231,5 +239,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="auth.js"></script>
   </body>
 </html>

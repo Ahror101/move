@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Админ панель - MovieNet</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="admin.css" />
+    <link 
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+
+          <div class="header-right">
+            <button class="theme-toggle" id="theme-toggle">
+              <i class="fas fa-moon"></i>
+            </button>
+            <a href="../index.html" class="btn btn-outline">
+              <i class="fas fa-home"></i>
+              Сайтга қайтиш
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard">
+      <div class="container">
+        <div class="admin-header">
+          <h1>Админ панель</h1>
+        </div>
+
+        <!-- Movies Tab -->
+        <div class="admin-tab-content active" id="movies-tab">
+          <div class="admin-actions">
+            <h2>Кинолар бошқаруви</h2>
+            <div class="admin-search-box">
+              <input
+                type="search"
+                id="admin-search"
+                placeholder="Кино номини қидириш..."
+              />
+              <button id="search-btn" class="btn btn-outline">
+                <i class="fas fa-search"></i>
+                Қидириш
+              </button>
+            </div>
+            <button id="add-movie-btn" class="btn btn-primary">
+              <i class="fas fa-plus"></i>
+              Янги кино қўшиш
+            </button>
+          </div>
+
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Постер</th>
+                  <th>Номи</th>
+                  <th>Йили</th>
+                  <th>Рейтинг</th>
+                  <th>Жанрлар</th>
+                  <th>Амаллар</th>
+                </tr>
+              </thead>
+              <tbody id="movies-table-body">
+                <!-- Кинолар рўйхати шу ерда кўрсатилади -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Movie Modal -->
+    <div id="movie-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="movie-modal-title">Янги кино қўшиш</h2>
+          <button class="modal-close" id="movie-modal-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="movie-form" class="admin-form">
+            <input type="hidden" id="movie-id" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="movie-title">Номи</label>
+                <input type="text" id="movie-title" required />
+              </div>
+              <div class="form-group">
+                <label for="movie-year">Йили</label>
+                <select id="movie-year" required>
+                  <!-- Years will be added dynamically -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="movie-rating">Рейтинг</label>
+                <select id="movie-rating" required>
+                  <option value="10.0">10.0</option>
+                  <option value="9.5">9.5</option>
+                  <option value="9.0">9.0</option>
+                  <option value="8.5">8.5</option>
+                  <option value="8.0">8.0</option>
+                  <option value="7.5">7.5</option>
+                  <option value="7.0">7.0</option>
+                  <option value="6.5">6.5</option>
+                  <option value="6.0">6.0</option>
+                  <option value="5.5">5.5</option>
+                  <option value="5.0">5.0</option>
+                  <option value="4.5">4.5</option>
+                  <option value="4.0">4.0</option>
+                  <option value="3.5">3.5</option>
+                  <option value="3.0">3.0</option>
+                  <option value="2.5">2.5</option>
+                  <option value="2.0">2.0</option>
+                  <option value="1.5">1.5</option>
+                  <option value="1.0">1.0</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="movie-duration">Давомийлиги</label>
+                <select id="movie-duration" required>
+                  <option value="1h 0m">1 соат 0 дақиқа</option>
+                  <option value="1h 15m">1 соат 15 дақиқа</option>
+                  <option value="1h 30m">1 соат 30 дақиқа</option>
+                  <option value="1h 45m">1 соат 45 дақиқа</option>
+                  <option value="2h 0m">2 соат 0 дақиқа</option>
+                  <option value="2h 15m">2 соат 15 дақиқа</option>
+                  <option value="2h 30m">2 соат 30 дақиқа</option>
+                  <option value="2h 45m">2 соат 45 дақиқа</option>
+                  <option value="3h 0m">3 соат 0 дақиқа</option>
+                  <option value="3h 15m">3 соат 15 дақиқа</option>
+                  <option value="3h 30m">3 соат 30 дақиқа</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="movie-type">Кино тури</label>
+              <select id="movie-type" required>
+                <option value="movie">Кино</option>
+                <option value="series">Сериал</option>
+                <option value="animation">Мультфильм</option>
+                <option value="documentary">Ҳужжатли фильм</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="movie-description">Тавсиф</label>
+              <textarea id="movie-description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="movie-genres">Жанрлар</label>
+              <div class="genre-checkboxes" id="genre-checkboxes">
+                <!-- Genres will be added dynamically -->
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="movie-poster">Постер расми</label>
+                <div class="file-input-container">
+                  <input type="file" id="movie-poster" accept="image/*" />
+                  <div class="file-input-preview" id="poster-preview"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="movie-backdrop">Фон расми</label>
+                <div class="file-input-container">
+                  <input type="file" id="movie-backdrop" accept="image/*" />
+                  <div class="file-input-preview" id="backdrop-preview"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" id="movie-cancel">
+                Бекор қилиш
+              </button>
+              <button type="submit" class="btn btn-primary" id="movie-save">
+                Сақлаш
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="../telegram.js"></script>
+    <script src="../auth.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

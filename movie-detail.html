@@ -41,7 +41,9 @@
               <i class="fas fa-moon"></i>
             </button>
 
-            <button class="btn btn-primary">Sign In</button>
+            <div class="auth-buttons" id="auth-buttons">
+              <a href="signin.html" class="btn btn-primary">Sign In</a>
+            </div>
 
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
               <i class="fas fa-bars"></i>
@@ -79,7 +81,11 @@
           </ul>
         </nav>
 
-        <button class="btn btn-primary mobile-sign-in">Sign In</button>
+        <div class="mobile-auth-buttons" id="mobile-auth-buttons">
+          <a href="signin.html" class="btn btn-primary mobile-sign-in"
+            >Sign In</a
+          >
+        </div>
       </div>
     </div>
 
@@ -152,6 +158,49 @@
               </div>
             </div>
           </div>
+
+          <!-- Like/Dislike Section -->
+          <div class="movie-reactions">
+            <h2>Rate This Movie</h2>
+            <div class="reaction-buttons">
+              <button class="reaction-btn" id="like-btn">
+                <i class="fas fa-thumbs-up"></i>
+                <span id="like-count">0</span>
+              </button>
+              <button class="reaction-btn" id="dislike-btn">
+                <i class="fas fa-thumbs-down"></i>
+                <span id="dislike-count">0</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Comments Section -->
+          <div class="movie-comments">
+            <h2>Comments</h2>
+            <div class="comment-form" id="comment-form">
+              <div class="auth-required" id="auth-required">
+                <p>
+                  Please <a href="signin.html">sign in</a> to leave a comment.
+                </p>
+              </div>
+              <form id="comment-input-form" style="display: none">
+                <textarea
+                  id="comment-input"
+                  placeholder="Write your comment here..."
+                  rows="3"
+                ></textarea>
+                <button type="submit" class="btn btn-primary">
+                  Post Comment
+                </button>
+              </form>
+            </div>
+            <div class="comments-list" id="comments-list">
+              <!-- Comments will be loaded here -->
+              <div class="no-comments" id="no-comments">
+                <p>No comments yet. Be the first to comment!</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -218,5 +267,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="telegram.js"></script>
+    <script src="auth.js"></script>
   </body>
 </html>

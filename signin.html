@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explore Movies - MovieNet</title>
+    <title>Sign In - MovieNet</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -24,27 +24,13 @@
           <nav class="main-nav">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="movies.html" class="active">Movies</a></li>
+              <li><a href="movies.html">Movies</a></li>
               <li><a href="movies.html?category=new">New Releases</a></li>
               <li><a href="movies.html?category=top-rated">Top Rated</a></li>
             </ul>
           </nav>
 
           <div class="header-right">
-            <div class="search-box">
-              <i class="fas fa-search"></i>
-              <input type="search" placeholder="Search movies..." />
-            </div>
-
-            <button class="theme-toggle" id="theme-toggle">
-              <i class="fas fa-sun"></i>
-              <i class="fas fa-moon"></i>
-            </button>
-
-            <div class="auth-buttons" id="auth-buttons">
-              <a href="signin.html" class="btn btn-primary">Sign In</a>
-            </div>
-
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
               <i class="fas fa-bars"></i>
             </button>
@@ -67,60 +53,64 @@
           </button>
         </div>
 
-        <div class="mobile-search">
-          <i class="fas fa-search"></i>
-          <input type="search" placeholder="Search movies..." />
-        </div>
-
         <nav class="mobile-nav">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="movies.html" class="active">Movies</a></li>
+            <li><a href="movies.html">Movies</a></li>
             <li><a href="movies.html?category=new">New Releases</a></li>
             <li><a href="movies.html?category=top-rated">Top Rated</a></li>
           </ul>
         </nav>
-
-        <div class="mobile-auth-buttons" id="mobile-auth-buttons">
-          <a href="signin.html" class="btn btn-primary mobile-sign-in"
-            >Sign In</a
-          >
-        </div>
       </div>
     </div>
 
     <main>
-      <section class="movies-page">
+      <section class="auth-section">
         <div class="container">
-          <h1>Explore Movies</h1>
+          <div class="auth-container">
+            <div class="auth-header">
+              <h1>Sign In</h1>
+              <p>Welcome back to MovieNet</p>
+            </div>
 
-          <div class="tabs">
-            <button class="tab-btn active" data-category="all">
-              All Movies
-            </button>
-            <button class="tab-btn" data-category="popular">Popular</button>
-            <button class="tab-btn" data-category="new">New Releases</button>
-            <button class="tab-btn" data-category="top-rated">Top Rated</button>
-          </div>
+            <div class="auth-message" id="auth-message"></div>
 
-          <div class="movie-grid" id="movies-grid">
-            <!-- Movies will be loaded here via JavaScript -->
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
-            <div class="movie-card-skeleton"></div>
+            <form id="signin-form" class="auth-form">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Sign In
+              </button>
+            </form>
+
+            <div class="auth-footer">
+              <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
           </div>
         </div>
       </section>
     </main>
+
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -183,6 +173,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="telegram.js"></script>
     <script src="auth.js"></script>
   </body>
 </html>
